@@ -1,27 +1,33 @@
-'use client'
+import { createPortal } from "react-dom";
 
-import { useState } from "react";
-import Modal from "react-modal";
-
-const CartModal = ({handleOpenModalCart}) => {
-  const [modalIsOpen, setIsOpen] = useState(true);
-  const handleCloseModal = () => {
-    setIsOpen(false)
-  }
-
+const BackdropOverlay = () => {
   return (
-    <div>
-      <Modal
-        isOpen={modalIsOpen}
-        onRequestClose={handleCloseModal}
-      >
-        <div>
-          Hello World
-          <button onClick={handleCloseModal}>Close</button>
-        </div>
-      </Modal>
+    <div className="fixed top-0 left-0 w-full h-screen z-20 bg-black bg-opacity-75" />
+  );
+};
+
+const ModalOverlay = ({ children }) => {
+  return (
+    <div className="fixed top-0 left-0 w-full h-screen flex items-center justify-center z-30">
+      <div className="bg-white p-4 rounded-lg shadow-lg text-gray-900 mx-2">
+        {children}
+      </div>
     </div>
   );
 };
 
-export default CartModal;
+const portalElement = document.body;
+
+const Modal = ({ children }) => {
+  return (
+    <>
+      {createPortal(<BackdropOverlay />, portalElement)}
+
+      {createPortal(
+        <ModalOverlay>{children}</ModalOverlay>,portalElement
+      )}
+    </>
+  );
+};
+
+export default Modal;
