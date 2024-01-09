@@ -1,12 +1,12 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import CartIcon from "@/assets/cart.svg";
 import { useSelector } from "react-redux";
+import { selectedTotalItems } from "@/features/cart/cartSlice";
 
-const Header = () => {
-  const cartTotalItems = useSelector((state) =>
-  state.cart.items.reduce((total, item) => total + item.quantity, 0));
+const Header = ({handleOpenModalCart}) => {
+  const cartTotalItems = useSelector(selectedTotalItems)
 
   return (
     <header className="flex justify-between items-center px-16 py-4 bg-blue-500">
@@ -24,7 +24,7 @@ const Header = () => {
           </li>
         </ul>
       </nav>
-      <button className="relative">
+      <button className="relative" onClick={handleOpenModalCart}>
         <Image src={CartIcon} alt="Cart Icon" height={25} width={25} />
         {cartTotalItems > 0 ? (
           <span className="w-5 h-5 bg-red-500 absolute rounded-full -top-2 -right-2 text-xs flex justify-center items-center text-gray-50">
