@@ -7,6 +7,7 @@ import { useState } from "react";
 import CartModal from "@/components/CartModal";
 import ButtonFilters from "@/components/ButtonFilters";
 import FiltersModal from "@/components/FiltersModal";
+import Category from "@/components/Category";
 
 export default function Home() {
   const [cartModalIsOpen, setCartModalIsOpen] = useState(false);
@@ -29,9 +30,12 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main className="bg-neutral-900">
       <Header handleOpenModalCart={handleOpenModalCart} />
-      <ButtonFilters handleOpenModalFilters={handleOpenModalFilters} />
+      <div className="flex justify-between p-4">
+        <Category/>
+        <ButtonFilters handleOpenModalFilters={handleOpenModalFilters} />
+      </div>
       <ProductList />
 
       {cartModalIsOpen ? (
@@ -39,7 +43,7 @@ export default function Home() {
           <CartModal handleCloseModalCart={handleCloseModalCart} />
         </Modal>
       ) : null}
-      
+
       {filtersModalIsOpen ? (
         <Modal>
           <FiltersModal handleCloseModalFilters={handleCloseModalFilters} />
