@@ -20,8 +20,8 @@ const ProductCard = ({
   };
 
   return (
-    <div className="border rounded-xl flex flex-col justify-between items-center text-center gap-y-4 py-6 px-4 border-gray-400">
-      <div className="bg-cover bg-center w-28 h-28">
+    <div className="border-2 rounded-xl flex flex-col justify-between items-center text-center gap-y-4 py-6 px-4 border-neutral-700">
+      <div className="bg-cover bg-center w-28 h-28 bg-neutral-50">
         <Image
           src={image}
           alt={title}
@@ -30,19 +30,19 @@ const ProductCard = ({
           className="w-full h-full"
         />
       </div>
-      <div className=" bg-gray-50 drop-shadow-lg p-4 rounded-md">
-        <h5 className="text-xs text-gray-400 capitalize mb-2">{category}</h5>
-        <h1 className="text-xs text-gray-800 uppercase">
+      <div className=" bg-neutral-700 drop-shadow-lg p-4 rounded-md">
+        <h5 className="text-xs text-gray-300 capitalize mb-2">{category}</h5>
+        <h1 className="text-xs text-gray-50 uppercase">
           {title.length > 35 ? title.substring(0, 35) + "..." : title}
         </h1>
       </div>
       {/* <h3 className="text-xs text-gray-500">{description}</h3> */}
-      <h2 className=" font-semibold">${price}</h2>
-      <h3 className="text-xs text-gray-500">
+      <h2 className=" font-semibold text-gray-100">${price}</h2>
+      <h3 className="text-xs text-gray-300">
         {rating.rate} | {rating.count} reviews
       </h3>
       <button
-        className="uppercase py-2 px-4 bg-blue-500 rounded-full text-gray-50 text-sm"
+        className="uppercase py-2 px-4 bg-neutral-300 rounded-full text-gray-900 text-sm"
         onClick={() => handleClickBuy(product)}
       >
         Add to cart

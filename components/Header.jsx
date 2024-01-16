@@ -5,11 +5,11 @@ import CartIcon from "@/assets/cart.svg";
 import { useSelector } from "react-redux";
 import { selectedTotalItems } from "@/features/cart/cartSlice";
 
-const Header = ({handleOpenModalCart}) => {
-  const cartTotalItems = useSelector(selectedTotalItems)
+const Header = ({ handleOpenModalCart }) => {
+  const cartTotalItems = useSelector(selectedTotalItems);
 
   return (
-    <header className="flex justify-between items-center px-16 py-4 bg-blue-500">
+    <header className="flex justify-between items-center px-16 py-4 bg-neutral-900 border-b-2 border-neutral-600">
       <h3 className="text-gray-50">Satria Bahari</h3>
       <nav className="text-gray-50">
         <ul className="flex gap-x-4">

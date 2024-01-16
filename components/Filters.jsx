@@ -1,12 +1,10 @@
-"use client";
-
 import { setSortBy } from "@/features/productList/filterSlice";
 import { useDispatch } from "react-redux";
 
 const ItemFilters = () => {
   const dispatch = useDispatch();
 
-  const handleFilterSelect = (value) => {
+  const handleSortBySelect = (value) => {
     dispatch(setSortBy(value));
   };
 
@@ -18,7 +16,7 @@ const ItemFilters = () => {
           type="radio"
           name="filter"
           value="A-Z"
-          onChange={() => handleFilterSelect("A-Z")}
+          onChange={() => handleSortBySelect("A-Z")}
         />
       </div>
       <div>
@@ -27,7 +25,7 @@ const ItemFilters = () => {
           type="radio"
           name="filter"
           value="Z-A"
-          onChange={() => handleFilterSelect("Z-A")}
+          onChange={() => handleSortBySelect("Z-A")}
         />
       </div>
       <div>
@@ -36,7 +34,7 @@ const ItemFilters = () => {
           type="radio"
           name="filter"
           value="Lowest Price"
-          onChange={() => handleFilterSelect("Lowest Price")}
+          onChange={() => handleSortBySelect("Lowest Price")}
         />
       </div>
       <div>
@@ -45,7 +43,7 @@ const ItemFilters = () => {
           type="radio"
           name="filter"
           value="Highest Price"
-          onChange={() => handleFilterSelect("Highest Price")}
+          onChange={() => handleSortBySelect("Highest Price")}
         />
       </div>
     </div>
